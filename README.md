@@ -1,4 +1,2 @@
-3.4_Shooter_U_kernel
-====================
-
-[WIP] DO NOT FLASH NOR USE THIS KERNEL
+SHOOTER_U-Sense-5-kernel
+========================
