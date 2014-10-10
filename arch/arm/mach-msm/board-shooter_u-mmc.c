@@ -20,6 +20,7 @@
 #include <linux/err.h>
 #include <linux/debugfs.h>
 #include <linux/gpio.h>
+#include <linux/module.h>
 
 #include <asm/gpio.h>
 #include <asm/io.h>
@@ -29,9 +30,10 @@
 
 #include <asm/mach/mmc.h>
 
+#include <mach/htc_sleep_clk.h>
 #include "devices.h"
 #include "board-shooter_u.h"
-#include "proc_comm.h"
+#include <mach/proc_comm.h>
 #include <mach/msm_iomap.h>
 #include <linux/mfd/pmic8058.h>
 #include <linux/irq.h>
@@ -40,7 +42,7 @@
 #include <mach/rpm.h>
 #include <mach/rpm-regulator.h>
 
-#include "mpm.h"
+#include <mach/mpm.h>
 #include "rpm_resources.h"
 
 int msm_proc_comm(unsigned cmd, unsigned *data1, unsigned *data2);
@@ -178,7 +180,7 @@ static unsigned int shooter_u_wifi_status(struct device *dev)
 
 static unsigned int shooter_u_wifislot_type = MMC_TYPE_SDIO_WIFI;
 static struct mmc_platform_data shooter_u_wifi_data = {
-	.ocr_mask               = MMC_VDD_22_23,
+	.ocr_mask               = MMC_VDD_28_29,
 	.status                 = shooter_u_wifi_status,
 	.register_status_notify = shooter_u_wifi_status_register,
 	.embedded_sdio          = &shooter_u_wifi_emb_data,

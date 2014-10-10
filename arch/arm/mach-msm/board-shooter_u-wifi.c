@@ -78,7 +78,7 @@ int __init shooter_u_init_wifi_mem(void)
 
 static struct resource shooter_u_wifi_resources[] = {
 	[0] = {
-		.name		= "bcm4329_wlan_irq",
+		.name		= "bcmdhd_wlan_irq",
 		.start		= MSM_GPIO_TO_INT(SHOOTER_U_GPIO_WIFI_IRQ),
 		.end		= MSM_GPIO_TO_INT(SHOOTER_U_GPIO_WIFI_IRQ),
 #ifdef HW_OOB
@@ -98,7 +98,7 @@ static struct wifi_platform_data shooter_u_wifi_control = {
 };
 
 static struct platform_device shooter_u_wifi_device = {
-	.name           = "bcm4329_wlan",
+	.name           = "bcmdhd_wlan",
 	.id             = 1,
 	.num_resources  = ARRAY_SIZE(shooter_u_wifi_resources),
 	.resource       = shooter_u_wifi_resources,
