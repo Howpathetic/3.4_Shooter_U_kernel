@@ -22,10 +22,12 @@
 #include <linux/gpio.h>
 #include <mach/gpio.h>
 
+#include <linux/moduleparam.h>
 #include "board-shooter_u.h"
 
 #include <linux/mfd/pmic8058.h>
-#include <linux/input/pmic8058-keypad.h>
+
+#include <mach/board-msm8660.h>
 
 static char *keycaps = "--qwerty";
 #undef MODULE_PARAM_PREFIX
@@ -91,9 +93,9 @@ static struct gpio_event_input_info shooter_u_keypad_input_info = {
 	.flags = GPIOEDF_PRINT_KEYS,
 	.type = EV_KEY,
 #if BITS_PER_LONG != 64 && !defined(CONFIG_KTIME_SCALAR)
-	.debounce_time.tv.nsec = 5 * NSEC_PER_MSEC,
+	.debounce_time.tv.nsec = 20 * NSEC_PER_MSEC,
 # else
-	.debounce_time.tv64 = 5 * NSEC_PER_MSEC,
+	.debounce_time.tv64 = 20 * NSEC_PER_MSEC,
 # endif
 	.keymap = shooter_u_keypad_input_map,
 	.keymap_size = ARRAY_SIZE(shooter_u_keypad_input_map),
@@ -126,9 +128,9 @@ static struct gpio_event_switch_info shooter_u_keypad_switch_info = {
 	.flags = GPIOEDF_PRINT_KEYS,
 	.type = EV_SW,
 #if BITS_PER_LONG != 64 && !defined(CONFIG_KTIME_SCALAR)
-	.debounce_time.tv.nsec = 5 * NSEC_PER_MSEC,
+	.debounce_time.tv.nsec = 20 * NSEC_PER_MSEC,
 # else
-	.debounce_time.tv64 = 5 * NSEC_PER_MSEC,
+	.debounce_time.tv64 = 20 * NSEC_PER_MSEC,
 # endif
 	.keymap = shooter_u_gpio_switch,
 	.keymap_size = ARRAY_SIZE(shooter_u_gpio_switch),
