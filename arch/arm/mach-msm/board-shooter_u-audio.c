@@ -69,11 +69,6 @@ void shooter_u_snddev_poweramp_on(int en)
 	}
 }
 
-void pyramid_snddev_usb_headset_pamp_on(int en)
-{
-	pr_aud_info("%s %d\n", __func__, en);
-}
-
 void shooter_u_snddev_hsed_pamp_on(int en)
 {
 	pr_aud_info("%s %d\n", __func__, en);
