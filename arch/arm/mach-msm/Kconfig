@@ -751,6 +751,7 @@ config MACH_SHOOTER_U
         default n
         bool "Shooter_U"
         select SMP_PARALLEL_START
+	select FB_MSM_MIPI_DSI
         help
           Support for the Shooter_U device.
 
@@ -2647,4 +2648,3 @@ config IO_FOOTPRINT
 	help
 	  Provides support for light-weight tracing of CPU register read/write
 endif
-
