@@ -609,6 +609,11 @@ config LEDS_TRIGGER_SLEEP
 	help
 	  This turns LEDs on when the screen is off but the cpu still running.
 
+config FLASHLIGHT_AAT1277
+        tristate "flashlight AAT1277"
+        help
+          Say Y here to enable the AAT flashlight
+
 comment "iptables trigger is under Netfilter config (LED target)"
 	depends on LEDS_TRIGGERS
 
